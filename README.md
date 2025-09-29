@@ -38,7 +38,7 @@ To access environment variables, you need the dotenv plugin by Bruno Meilick htt
 },
 ```
 
-### 2. Add the JS
+### 2. JS validation on click
 
 To actually validate the tokens, you need to add the JS to your site. You can do this by adding the following to your `<head>`:
 
@@ -52,25 +52,15 @@ The server signs the email address and generates a token that is embedded in the
 
 ## Use in templates
 
-### Method A: Helper (one-liner)
+### Method A: Helper (one line)
 
-Use the helper function `emailTokenLink($email, $label, $attrs)` to generate the email link with a token. Make sure to include the JavaScript snippet in your template, either by:
+Use the helper function `emailTokenLink($email, $label, $attrs)` to generate the email link with a token.
 
-```php
-<?php snippet('emailToken') ?>
-```
-
-or, if available, by including the JS URL helper:
-
-```php
-<script src="<?= email_token_js_url() ?>"></script>
-```
 
 Example Kirby template code:
 
 ```php
 <?= emailTokenLink('info@example.com', 'Contact Us', ['class' => 'btn']) ?>
-<?php snippet('emailToken') ?>
 ```
 
 ### Method B: Manual token + anchor
@@ -82,13 +72,8 @@ Generate a token manually with `email_token_make($email)` and render the anchor 
 <a href="#" class="js-mailto" data-mailto-token="<?= $token ?>">E-Mail</a>
 ```
 
-Remember to include the JavaScript snippet in your layout's `<head>`:
-
-```php
-<?php snippet('emailToken') ?>
-```
-
-If your Kirby site is installed in a subfolder, set the API base URL by adding the following attribute to your `<html>` tag:
+---------
+Note: If your Kirby site is installed in a subfolder, set the API base URL by adding the following attribute to your `<html>` tag:
 
 ```html
 <html data-kb-api-base="<?= kirby()->url('api') ?>">
