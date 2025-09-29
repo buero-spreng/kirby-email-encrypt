@@ -1,0 +1,12 @@
+{
+    "name": "kesabr/kirby-email-encrypt",
+    "description": "Ecrypt Email addresses and js validate to prevent crawlers from reading email addresses",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kenan Brunner",
+            "email": "hello@kenanbrunner.ch"
+        }
+    ],
+    "require": {}
+}
